@@ -19,7 +19,7 @@
 #  MA 02110-1301, USA.
 
 import logging
-from lavapdu.drivers.consolerserverbase import ConsoleServerBase
+from lavapdu.drivers.consoleserverbase import ConsoleServerBase
 log = logging.getLogger(__name__)
 
 
@@ -39,7 +39,7 @@ class ConsoleServer(ConsoleServerBase):
         log.debug("done")
 
     def _pdu_get_to_prompt(self):
-        self.connection.send("\r")
+        self.connection.send("\r\n")
         self.connection.expect('Telnet Server>')
 
     def _port_interaction(self, command, port_number):

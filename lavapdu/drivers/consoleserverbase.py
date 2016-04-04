@@ -20,6 +20,7 @@
 
 import logging
 import pexpect
+import sys
 from lavapdu.drivers.driver import PDUDriver
 log = logging.getLogger(__name__)
 
@@ -53,15 +54,15 @@ class ConsoleServerBase(PDUDriver):
         return False
 
     def port_interaction(self, command, port_number):
-        log.debug("Running port_interaction from APCBase")
+        log.debug("Running port_interaction from ConsolerServerBase")
         self._port_interaction(command,  # pylint: disable=no-member
                                port_number)
 
     def get_connection(self):
-        log.debug("Connecting to APC PDU with: %s", self.exec_string)
+        log.debug("Connecting to Console Server PDU with: %s", self.exec_string)
         # only uncomment this line for FULL debug when developing
-        # self.connection = pexpect.spawn(self.exec_string, logfile=sys.stdout)
-        self.connection = pexpect.spawn(self.exec_string)
+        self.connection = pexpect.spawn(self.exec_string, logfile=sys.stdout)
+        # self.connection = pexpect.spawn(self.exec_string)
         if self.username != "":
             self._pdu_login(self.username,self.password)
 
