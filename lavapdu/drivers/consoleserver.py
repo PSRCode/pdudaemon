@@ -34,9 +34,9 @@ class ConsoleServer(ConsoleServerBase):
 
     def _pdu_logout(self):
         log.debug("logging out")
-        self.connection.send("\r")
+        self.connection.send("\r\n")
         self.connection.send("quit")
-        self.connection.send("\r")
+        self.connection.send("\r\n")
         log.debug("done")
 
     def _pdu_get_to_prompt(self):
