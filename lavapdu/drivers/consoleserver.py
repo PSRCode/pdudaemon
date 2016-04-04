@@ -24,6 +24,7 @@ log = logging.getLogger(__name__)
 
 
 class ConsoleServer(ConsoleServerBase):
+    pdu_commands = {'on': 'on', 'off': 'off'}
 
     @classmethod
     def accepts(cls, drivername):
