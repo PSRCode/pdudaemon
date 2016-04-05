@@ -61,8 +61,8 @@ class ConsoleServerBase(PDUDriver):
     def get_connection(self):
         log.debug("Connecting to Console Server PDU with: %s", self.exec_string)
         # only uncomment this line for FULL debug when developing
-        self.connection = pexpect.spawn(self.exec_string, logfile=sys.stdout)
-        # self.connection = pexpect.spawn(self.exec_string)
+        # self.connection = pexpect.spawn(self.exec_string, logfile=sys.stdout)
+         self.connection = pexpect.spawn(self.exec_string)
         if self.username != "":
             self._pdu_login(self.username,self.password)
 

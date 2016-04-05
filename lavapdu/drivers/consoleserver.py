@@ -49,6 +49,6 @@ class ConsoleServer(ConsoleServerBase):
         self._pdu_get_to_prompt()
         self.connection.sendline(self.pdu_commands[command] +
                                  (" %i" % port_number))
-        self.connection.expect("Power set to " + self.pdu_commands[command])
+        self.connection.expect("Power (set to|is already) " + self.pdu_commands[command])
         self._pdu_get_to_prompt()
         log.debug("done")
