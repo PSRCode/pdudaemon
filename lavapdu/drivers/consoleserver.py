@@ -37,6 +37,7 @@ class ConsoleServer(ConsoleServerBase):
         self.connection.send("\r\n")
         self.connection.send("quit")
         self.connection.send("\r\n")
+        self.connection.expect('Goodbye')
         log.debug("done")
 
     def _pdu_get_to_prompt(self):
